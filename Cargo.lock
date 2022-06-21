@@ -43,9 +43,9 @@ dependencies = [
 
 [[package]]
 name = "anyhow"
-version = "1.0.57"
+version = "1.0.58"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08f9b8508dccb7687a1d6c4ce66b2b0ecef467c94667de27d8d7fe1f8d2a9cdc"
+checksum = "bb07d2053ccdbe10e2af2995a2f116c1330396493dc1269f6a91d0ae82e19704"
 
 [[package]]
 name = "asn1-rs"
@@ -151,25 +151,6 @@ version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e97a171d191782fba31bb902b14ad94e24a68145032b7eedf871ab0bc0d077b6"
 dependencies = [
- "event-listener",
-]
-
-[[package]]
-name = "async-mutex"
-version = "1.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "479db852db25d9dbf6204e6cb6253698f175c15726470f78af0d918e99d6156e"
-dependencies = [
- "event-listener",
-]
-
-[[package]]
-name = "async-rwlock"
-version = "1.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "261803dcc39ba9e72760ba6e16d0199b1eef9fc44e81bffabbebb9f5aea3906c"
-dependencies = [
- "async-mutex",
  "event-listener",
 ]
 
@@ -358,13 +339,12 @@ checksum = "37ccbd214614c6783386c1af30caf03192f17891059cecc394b4fb119e363de3"
 [[package]]
 name = "burrego"
 version = "0.1.3"
-source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.3.7#fd60b4e9c53c3f3298e765ca7e3e09592af61c2e"
+source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.4.0#fb9ec06c63d59b407973920666b336e337f3997b"
 dependencies = [
  "anyhow",
  "base64",
  "chrono",
  "chrono-tz",
- "clap",
  "gtmpl",
  "gtmpl_value",
  "itertools",
@@ -401,29 +381,13 @@ checksum = "c1db59621ec70f09c5e9b597b220c7a2b43611f4710dc03ceb8748637775692c"
 
 [[package]]
 name = "cached"
-version = "0.30.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af4dfac631a8e77b2f327f7852bb6172771f5279c4512efe79fad6067b37be3d"
-dependencies = [
- "async-mutex",
- "async-rwlock",
- "async-trait",
- "cached_proc_macro 0.9.0",
- "cached_proc_macro_types",
- "futures",
- "hashbrown 0.11.2",
- "once_cell",
-]
-
-[[package]]
-name = "cached"
 version = "0.34.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "12f5cd208ba696f870238022d81ca1d80ed9d696fd62341c747f2d8f6ecdd9fe"
 dependencies = [
  "async-trait",
  "async_once",
- "cached_proc_macro 0.12.0",
+ "cached_proc_macro",
  "cached_proc_macro_types",
  "futures",
  "hashbrown 0.12.1",
@@ -431,18 +395,6 @@ dependencies = [
  "once_cell",
  "thiserror",
  "tokio",
-]
-
-[[package]]
-name = "cached_proc_macro"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "725f434d6da2814b989bd905c62ca28a9383feff7440210dc279665fbbbc9511"
-dependencies = [
- "cached_proc_macro_types",
- "darling",
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -1757,9 +1709,9 @@ dependencies = [
 
 [[package]]
 name = "kubewarden-policy-sdk"
-version = "0.5.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "391ab0fe021e36e6cd59f3ebd5b4ab1889f587d602f840d933c0df1ca3f287b6"
+checksum = "5df1e1d27c3191d89e483ddb7010d4aba1e159ba36307591ff8e4c0018ce1452"
 dependencies = [
  "anyhow",
  "k8s-openapi",
@@ -2578,13 +2530,13 @@ dependencies = [
 
 [[package]]
 name = "policy-evaluator"
-version = "0.3.7"
-source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.3.7#fd60b4e9c53c3f3298e765ca7e3e09592af61c2e"
+version = "0.4.0"
+source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.4.0#fb9ec06c63d59b407973920666b336e337f3997b"
 dependencies = [
  "anyhow",
  "base64",
  "burrego",
- "cached 0.30.0",
+ "cached",
  "dns-lookup",
  "hyper",
  "json-patch",
@@ -2600,7 +2552,7 @@ dependencies = [
  "tracing-futures",
  "validator",
  "wapc",
- "wasmparser 0.85.0",
+ "wasmparser 0.86.0",
  "wasmtime",
  "wasmtime-provider",
 ]
@@ -2635,7 +2587,7 @@ dependencies = [
 
 [[package]]
 name = "policy-server"
-version = "0.3.2"
+version = "1.0.0-rc2"
 dependencies = [
  "anyhow",
  "async-stream",
@@ -3323,7 +3275,7 @@ source = "git+https://github.com/sigstore/sigstore-rs?rev=v0.3.1#eb418d41b6188bb
 dependencies = [
  "async-trait",
  "base64",
- "cached 0.34.1",
+ "cached",
  "lazy_static",
  "oci-distribution",
  "olpc-cjson",
@@ -4274,9 +4226,9 @@ checksum = "0559cc0f1779240d6f894933498877ea94f693d84f3ee39c9a9932c6c312bd70"
 
 [[package]]
 name = "wasmparser"
-version = "0.85.0"
+version = "0.86.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "570460c58b21e9150d2df0eaaedbb7816c34bcec009ae0dcc976e40ba81463e7"
+checksum = "4bcbfe95447da2aa7ff171857fc8427513eb57c75a729bb190e974dc695e8f5c"
 dependencies = [
  "indexmap",
 ]
