@@ -391,7 +391,7 @@ checksum = "c1ad822118d20d2c234f427000d5acc36eabe1e29a348c89b63dd60b13f28e5d"
 [[package]]
 name = "burrego"
 version = "0.2.0"
-source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.4.10#956a1ca7485c03223cbc5fb9eb8cbc9f6c62fed9"
+source = "git+https://github.com/viccuad/policy-evaluator?branch=rustls#620216b04306f62c1d1db6ff94344f9dcf6164dc"
 dependencies = [
  "anyhow",
  "base64 0.13.0",
@@ -3103,7 +3103,7 @@ checksum = "1df8c4ec4b0627e53bdf214615ad287367e482558cf84b109250b37464dc03ae"
 [[package]]
 name = "policy-evaluator"
 version = "0.4.10"
-source = "git+https://github.com/kubewarden/policy-evaluator?tag=v0.4.10#956a1ca7485c03223cbc5fb9eb8cbc9f6c62fed9"
+source = "git+https://github.com/viccuad/policy-evaluator?branch=rustls#620216b04306f62c1d1db6ff94344f9dcf6164dc"
 dependencies = [
  "anyhow",
  "base64 0.13.0",
@@ -3131,7 +3131,7 @@ dependencies = [
 [[package]]
 name = "policy-fetcher"
 version = "0.7.12"
-source = "git+https://github.com/kubewarden/policy-fetcher?tag=v0.7.12#1eed64d7d213f9e2f125aa09d29a47cf376728f0"
+source = "git+https://github.com/viccuad/policy-fetcher?branch=rustls#b930e554677d41f32a3dd407ba66bfaaff9cc57b"
 dependencies = [
  "anyhow",
  "async-std",
@@ -3965,8 +3965,7 @@ dependencies = [
 [[package]]
 name = "sigstore"
 version = "0.5.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03cd6591de04dfc44969db1096d9736c56d22af98f9db18bcdfc4ff6b5a4b610"
+source = "git+https://github.com/viccuad/sigstore-rs?branch=reqwest-rustls-tls#5cd421b5e1322d2068fdc84a2358dd67b1b9e68f"
 dependencies = [
  "async-trait",
  "base64 0.13.0",
