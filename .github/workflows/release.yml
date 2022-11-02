@@ -13,28 +13,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Download build artifacts
-        uses: actions/github-script@v6
-        with:
-          script: |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: context.payload.workflow_run.id,
-            });
-            const matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name.startsWith("policy-server")
-            });
-            for (const artifact of matchArtifact) {
-              let download = await github.rest.actions.downloadArtifact({
-                 owner: context.repo.owner,
-                 repo: context.repo.repo,
-                 artifact_id: artifact.id,
-                 archive_format: 'zip',
-              });
-              let fs = require('fs');
-              file_path = `${process.env.GITHUB_WORKSPACE}/${artifact.name}.zip`;
-              fs.writeFileSync(file_path, Buffer.from(download.data));
-            }
+        uses: actions/download-artifact@v3
 
       - name: Create release
         uses: softprops/action-gh-release@v1
@@ -46,4 +25,4 @@ jobs:
           draft: false
           prerelease: ${{ contains(github.event.workflow_run.head_branch, '-alpha') || contains(github.event.workflow_run.head_branch, '-beta') || contains(github.event.workflow_run.head_branch, '-rc') }}
           files: |
-            policy-server*
+            ${{steps.download.outputs.download-path}}/policy-server*/**
